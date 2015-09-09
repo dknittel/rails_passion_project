@@ -11,6 +11,9 @@ class TeamsController < ApplicationController
                           draft_position: draft_position + 1)
       counter += 1
     end
+    Player.all.each do |player|
+      @draft.draftees.create(player_id: player.id)
+    end
     if @draft.save
       redirect_to draft_path(@draft)
     else

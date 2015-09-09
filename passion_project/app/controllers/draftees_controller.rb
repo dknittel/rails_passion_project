@@ -1,0 +1,3 @@
+class DrafteesController < ApplicationController
+
+end

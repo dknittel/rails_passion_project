@@ -2,3 +2,15 @@
 
 <%= link_to 'Logout', '/logout' %>
 
+</br>
+</br>
+
+<% Player.all.each do |player| %>
+  <%= player.name %>
+  <%= link_to 'View Stats', draft_player_path(@draft, player) %>
+  <%= form_for :draft, url: drafts_path do |f| %>
+  <div class='select-player'><%= submit_tag "Select Player" %></div>
+<% end %>
+  </br>
+<% end %>
+

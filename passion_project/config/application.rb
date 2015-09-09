@@ -6,6 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
+OCP_APIM_SUBSCRIPTION_KEY = ENV['OCP_APIM_SUBSCRIPTION_KEY']
+
 module PassionProject
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

@@ -17,4 +17,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id])
   end
 
+
+  def full_teams?(draft_id)
+    Team.where(draft_id: draft_id).each do |team|
+      if Draftee.where(team_id: team.id).count != 3
+        return false
+      end
+    end
+    true
+  end
 end

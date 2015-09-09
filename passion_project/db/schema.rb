@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909181902) do
+ActiveRecord::Schema.define(version: 20150909190546) do
+
+  create_table "draftees", force: :cascade do |t|
+    t.integer  "team_id"
+    t.integer  "player_id"
+    t.integer  "draft_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "draftees", ["draft_id"], name: "index_draftees_on_draft_id"
+  add_index "draftees", ["player_id"], name: "index_draftees_on_player_id"
+  add_index "draftees", ["team_id"], name: "index_draftees_on_team_id"
 
   create_table "drafts", force: :cascade do |t|
     t.integer  "current_team"
@@ -24,6 +36,26 @@ ActiveRecord::Schema.define(version: 20150909181902) do
 
   add_index "drafts", ["pool_id"], name: "index_drafts_on_pool_id"
   add_index "drafts", ["user_id"], name: "index_drafts_on_user_id"
+
+  create_table "players", force: :cascade do |t|
+    t.string   "name",                      null: false
+    t.string   "team"
+    t.integer  "games"
+    t.integer  "minutes"
+    t.integer  "field_goals_percentage"
+    t.string   "position"
+    t.integer  "three_pointers_percentage"
+    t.integer  "free_throws_percentage"
+    t.integer  "rebounds"
+    t.integer  "assists"
+    t.integer  "steals"
+    t.integer  "blocked_shots"
+    t.integer  "turnovers"
+    t.integer  "points"
+    t.integer  "pool_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pools", force: :cascade do |t|
     t.string   "name"
