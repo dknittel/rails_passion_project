@@ -1,0 +1,7 @@
+<%= form_for :draft, url: drafts_path do |f| %>
+  <%= f.label :num_teams %>
+  <%= f.text_field :num_teams %>
+  <%= f.label :pool %>
+  <%= f.text_field :pool %>
+  <%= submit_tag "Submit" %>
+<% end %>

@@ -1,0 +1,7 @@
+<%= form_for :team, url: draft_teams_path do |f| %>
+  <% @draft.num_teams.times do |number| %>
+    Team <%= number + 1 %>:
+    <%= f.text_field :"team[]" %>
+  <% end %>
+    <%= submit_tag "Start Draft" %>
+<% end %>
