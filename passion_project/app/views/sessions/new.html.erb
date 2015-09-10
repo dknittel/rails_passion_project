@@ -1,0 +1,7 @@
+<h1>Login</h1>
+
+<%= form_for :session, url: '/login' do |f| %>
+  Login: <%= f.text_field :login %>
+  Password: <%= f.password_field :password %>
+  <%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
+<% end %>

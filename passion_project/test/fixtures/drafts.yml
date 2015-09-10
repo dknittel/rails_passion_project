@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_team: 1
+  num_teams: 1
+  user_id: 
+  pool_id: 
+
+two:
+  current_team: 1
+  num_teams: 1
+  user_id: 
+  pool_id: 

@@ -1,0 +1,93 @@
+<%= @player.name %>
+<table>
+<tr>
+    <td>
+      Position
+    </td>
+    <td>
+      Games Played
+    </td>
+    <td>
+      Minutes
+    </td>
+    <td>
+      Field Goal Percentage
+    </td>
+    <td>
+      Three Point Percentage
+    </td>
+    <td>
+      Free Throw Percentage
+    </td>
+    <td>
+      Rebounds
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= @player.position %>
+    </td>
+    <td>
+      <%= @player.games %>
+    </td>
+    <td>
+      <%= @player.minutes %>
+    </td>
+    <td>
+      <%= @player.field_goals_percentage %>
+    </td>
+    <td>
+      <%= @player.three_pointers_percentage %>
+    </td>
+    <td>
+      <%= @player.free_throws_percentage %>
+    </td>
+    <td>
+      <%= @player.rebounds %>
+    </td>
+  </tr>
+</table>
+<table class="table table-striped white_back">
+  <tr>
+    <td>
+      Assists
+    </td>
+    <td>
+      Steals
+    </td>
+    <td>
+      Blocked Shots
+    </td>
+    <td>
+      Turnovers
+    </td>
+    <td>
+      Points
+    </td>
+    <td>
+      Team
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= @player.assists %>
+    </td>
+    <td>
+      <%= @player.steals %>
+    </td>
+    <td>
+      <%= @player.blocked_shots %>
+    </td>
+    <td>
+      <%= @player.turnovers %>
+    </td>
+    <td>
+      <%= @player.points %>
+    </td>
+    <td>
+      <%= @player.team %>
+    </td>
+  </tr>
+</table>
+
+<%= link_to 'Back', draft_path %>

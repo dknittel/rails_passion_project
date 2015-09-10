@@ -1,0 +1,14 @@
+<h2>Signup!</h2>
+<% if @form_error %>
+  <%= @form_error %>
+<% end %>
+<div class="input-field col s6">
+<%= form_for :user, url: '/users' do |f| %>
+
+  <%= f.text_field :login %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
+
+<% end %>
+</div>
