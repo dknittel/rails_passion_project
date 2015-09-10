@@ -1,7 +1,7 @@
 <h1>Login</h1>
 
-<%= form_tag '/login' do %>
-  Login: <%= text_field_tag :login %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+<%= form_for :session, url: '/login' do |f| %>
+  Login: <%= f.text_field :login %>
+  Password: <%= f.password_field :password %>
+  <%= f.submit "Submit", :class => "waves-effect waves-light btn" %>
 <% end %>

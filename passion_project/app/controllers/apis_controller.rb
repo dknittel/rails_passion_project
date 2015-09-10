@@ -23,6 +23,3 @@ class PlayerStatsClient
   return response.body
   end
 end
-
-stats = PlayerStatsClient.new
-stats.get_stats

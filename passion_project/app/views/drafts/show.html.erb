@@ -1,16 +1,19 @@
 <%= @team.name %> is picking
 
-<%= link_to 'Logout', '/logout' %>
-
+<div class="current-team"><%= link_to 'Logout', '/logout' %></div>
+<div class="hidden"><%= link_to 'Finish Draft!', draft_draftees_path(@draft) %></div>
 </br>
 </br>
-
-<% Player.all.each do |player| %>
+<div>
+<% Player.order(points: :desc).each do |player| %>
+<div>
   <%= player.name %>
   <%= link_to 'View Stats', draft_player_path(@draft, player) %>
   <%= form_for :draft, url: drafts_path do |f| %>
-  <div class='select-player'><%= submit_tag "Select Player" %></div>
+  <%= submit_tag "Select Player", :class => 'select-player' %>
+</div>
 <% end %>
+</div>
   </br>
 <% end %>
 

@@ -49,6 +49,8 @@ function ajaxCall(method, url, data, dataType, callback) {
 function selectPlayer() {
   $('.select-player').on('click', function(e){
     var button = this;
+    console.log(button)
+    console.log('yooooooo')
     e.preventDefault();
     function callback(response) {
       counter += 1;
