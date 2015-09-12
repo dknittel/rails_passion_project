@@ -39,10 +39,10 @@ player_array = JSON.parse(response)
 #   hash.delete('FantasyPoints')
 #   hash.delete('PersonalFouls')
 # end
-
-Pool.create(name: 'NBA 2015')
-@pool = Pool.first
+# p player_array
+@pool = Pool.create(name: 'NBA 2015')
 player_array.each do |player_stats|
+	# Player.create(name: player_stats["Name"])
   @pool.players.create(name: player_stats["Name"], team: player_stats["Team"], position: player_stats["Position"], games: player_stats["Games"], field_goals_percentage: player_stats["FieldGoalsPercentage"], three_pointers_percentage: player_stats["ThreePointersPercentage"], free_throws_percentage: player_stats["FreeThrowsPercentage"], rebounds: player_stats["Rebounds"], assists: player_stats["Assists"], steals: player_stats["Steals"], blocked_shots: player_stats["BlockedShots"], turnovers: player_stats["Turnovers"], points: player_stats["Points"])
 end
 

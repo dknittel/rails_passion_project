@@ -29,6 +29,9 @@ class DraftsController < ApplicationController
 
 def create
   user = auth_current_user
+  p params
+  params[:draft][:pool]
+  p '*' * 100
   pool = Pool.find_by(name: params[:draft][:pool])
   @draft = user.drafts.new(draft_params)
   @draft.current_team = 1

@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require react
+//= require react_ujs
+
+
 
 $(document).ready(function() {
   selectPlayer();
