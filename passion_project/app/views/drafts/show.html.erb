@@ -1,7 +1,7 @@
 <%= @team.name %> is picking
 
 <div class="current-team"><%= link_to 'Logout', '/logout' %></div>
-<div class="hidden"><%= link_to 'Finish Draft!', draft_draftees_path(@draft) %></div>
+<div id="current-team" class="hidden"><%= link_to 'Finish Draft!', draft_draftees_path(@draft) %></div>
 </br>
 </br>
 <div>
@@ -9,7 +9,7 @@
 <div>
   <%= player.name %>
   <%= link_to 'View Stats', draft_player_path(@draft, player) %>
-  <%= form_for :draft, url: drafts_path do |f| %>
+  <%= form_for :draft, url: draft_draftee_path(@draft, @draftee) do |f| %>
   <%= submit_tag "Select Player", :class => 'select-player' %>
 </div>
 <% end %>
@@ -17,3 +17,6 @@
   </br>
 <% end %>
 
+<%#= javascript_include_tag 'components'%>
+
+<%= react_component('GetData', {:presenter => @presenter.to_json}, {:prerender => true}) %>

@@ -5,4 +5,5 @@ api/v1/drafts/:id
 	have something to determine the current team
 
 once you have all that, create the user interface with react using that data
-then use ajax to select players just like you did in sinatra
+then use ajax to select players just like you did in sinatra??
+Use unmount to remove players from the page

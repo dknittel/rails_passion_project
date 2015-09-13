@@ -1,43 +1,43 @@
-var Welcome = React.createClass({
-	render: function () {
-		return (<h1>Welcome to Fantasy Sports Draft</h1>);
-	}
-});
+// var Welcome = React.createClass({
+// 	render: function () {
+// 		return (<h1>Welcome to Fantasy Sports Draft</h1>);
+// 	}
+// });
 
-React.render(
-  <Welcome />,
-  document.getElementById('welcome')
-);
+// React.render(
+//   <Welcome />,
+//   document.getElementById('welcome')
+// );
 
-var LoginButton = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <a className="waves-effect waves-light btn" href="/login">Login</a>
-      </div>
-    );
-  }
-});
+// var LoginButton = React.createClass({
+//   render: function() {
+//     return (
+//       <div>
+//         <a className="waves-effect waves-light btn" href="/login">Login</a>
+//       </div>
+//     );
+//   }
+// });
 
-React.render(
-  <LoginButton />,
-  document.getElementById('content')
-);
+// React.render(
+//   <LoginButton />,
+//   document.getElementById('content')
+// );
 
-var RegisterButton = React.createClass({
-  render: function() {
-    return (
-      <div >
-        <a className="waves-effect waves-light btn" href="/signup" class="button">Register</a>
-      </div>
-    );
-  }
-});
+// var RegisterButton = React.createClass({
+//   render: function() {
+//     return (
+//       <div >
+//         <a className="waves-effect waves-light btn" href="/signup" class="button">Register</a>
+//       </div>
+//     );
+//   }
+// });
 
-React.render(
-  <RegisterButton />,
-  document.getElementById('content2')
-);
+// React.render(
+//   <RegisterButton />,
+//   document.getElementById('content2')
+// );
 
 
 // var Input = React.createClass({

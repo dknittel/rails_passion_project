@@ -6,7 +6,7 @@ class DraftsController < ApplicationController
     @draft = Draft.find(params[:id])
     @team = Team.where(draft_id: @draft.id).where(draft_position: 1)
     @draftee = Draftee.first#FIXME
-    @draftee = Draftee.new
+    # @draftee = Draftee.new
     p '*' * 100
     p params
     @draft = Draft.find(params[:id])
@@ -21,17 +21,32 @@ class DraftsController < ApplicationController
     end
     @team = Team.where(draft_id: @draft.id).find_by(draft_position: @draft.current_team)
     if request.xhr?
-      {full_teams: @full_teams, team_name: @team.name}.to_json
+      render :json => {full_teams: @full_teams, team_name: @team.name}
+      # {full_teams: @full_teams, team_name: @team.name}.to_json
+      render :json => @team
+      # @team.to_json(:only => [:id, :name])
+      current_team = Player.where(team_id: @team.id).map do |player|
+        player
+      end
+      render :json => current_team
+      # current_team.to_json(:only => [:id, :name])
+      available_players = Player.where(team_id: nil).map do |player|
+        player
+      end
+      # might need to be a hash!!!
+      @presenter = {:available_players => 'asdf'}
+      # render :json => available_players
+      # available_players.to_json(:only => [:id, :name])
     else
       # redirect_to draft_path
     end
   end
 
+  def update
+  end
+
 def create
   user = auth_current_user
-  p params
-  params[:draft][:pool]
-  p '*' * 100
   pool = Pool.find_by(name: params[:draft][:pool])
   @draft = user.drafts.new(draft_params)
   @draft.current_team = 1
