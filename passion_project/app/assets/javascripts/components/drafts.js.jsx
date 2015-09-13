@@ -1,6 +1,6 @@
 var CurrentTeam = React.createClass({
 	getInitialState: function () {
-		console.log(JSON.parse(this.props.teams));
+		console.log(JSON.parse(this.props.presenter));
 		return JSON.parse(this.props.presenter);
 	},
 

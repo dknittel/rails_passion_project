@@ -26,4 +26,5 @@ once you have all that, create the user interface with react using that data
 then use react to select players
 Use unmount to remove players from the page
 
-
+Fix login and register authentication and errors
+See notes from sinatra version
