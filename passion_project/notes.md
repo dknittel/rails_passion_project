@@ -1,6 +1,6 @@
 Sun:
-Sort players by points in drafts#show controller
-Display logout and 'is picking' with react
+(done) Sort players by points in drafts#show controller
+(done)Display logout and 'is picking' with react
 (done) Display view_stats and select player buttons on page with react
 Post to database with ajax
 Remove selected players with react
@@ -13,6 +13,7 @@ Logout link button
 Display complete page with react or just normal button link
 
 After 6:
+Prep what to say
 Clean up code
 Create video
 

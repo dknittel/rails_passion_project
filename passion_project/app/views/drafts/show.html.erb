@@ -1,24 +1,6 @@
-<%#= @team.name %> <!-- is picking -->
-<div id="logout"></div>
-
-<div id="current-team" class="hidden"><%= link_to 'Finish Draft!', draft_draftees_path(@draft) %></div>
-<div>
-<% Player.order(points: :desc).each do |player| %>
-<div>
-  <%#= player.name %>
-  <%#= link_to 'View Stats', draft_player_path(@draft, player) %>
-  <%#= form_for :draft, url: draft_draftee_path(@draft, @draftee) do |f| %>
-  <%#= submit_tag "Select Player", :class => 'select-player' %>
-</div>
-<% end %>
-</div>
-<%# end %>
-
 <%= javascript_include_tag 'components'%>
-<% @presenter[:available_players].each do |player| %>
-	<%#= player.name %>
-<% end %>
 
-<%= react_component("CurrentTeam") %>
+<%= react_component("CurrentTeam", {:presenter => @presenter.to_json}, {:prerender => true}) %>
 <%= react_component("LogoutButton") %>
+</br>
 <%= react_component("GetData", {:presenter => @presenter.to_json}, {:prerender => true}) %>

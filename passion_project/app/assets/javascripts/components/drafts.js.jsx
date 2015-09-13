@@ -1,13 +1,14 @@
 var CurrentTeam = React.createClass({
 	getInitialState: function () {
+		console.log('yo')
 		console.log(JSON.parse(this.props.presenter));
 		return JSON.parse(this.props.presenter);
 	},
 
 	render: function () {
+				console.log(this.state.picking_team.name);
 		return (
-
-				<div>{this.state.picking_team.name} + is picking</div>
+				<div>{this.state.picking_team.name} is picking</div>
 			)
 	}
 });
@@ -47,12 +48,13 @@ var GetData = React.createClass({
 		// },
 
 		render: function () {
+			// console.log(this.state.available_players)
 			var playerNodes = this.state.available_players.map(function (player) {
 				return (
 					<div>
 					{player.name}
 					<button>View Stats</button>
-					<button>Select Player</button>
+					<button id="select-player">Select Player</button>
 					</div>
 					// <Comment author={comment.author}>
 					// {comment.text}
