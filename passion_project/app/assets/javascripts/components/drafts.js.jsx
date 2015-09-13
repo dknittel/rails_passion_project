@@ -1,37 +1,36 @@
-// var GetData = React.createClass({
-// 	getInitialState: function () {
-// 		// console.log(JSON.parse(this.props.presenter);
-// 			return JSON.parse(this.props.presenter);
-// 		},
+var GetData = React.createClass({
+	getInitialState: function () {
+		// console.log(JSON.parse(this.props.presenter));
+			return JSON.parse(this.props.presenter);
+		},
 
-// 		getPlayerData: function ( formData, action ) {
-// 			console.log(formData)
-// 			$.ajax({
-// 				data: formData,
-// 				url: action,
-// 				type: "get",
-// 				dataType: "json",
-// 				success: function ( data ) {
-// 					console.log(data)
-// 					this.setState({ available_players: data });
-// 				}.bind(this)
-// 			});
-// 		},
+		// getPlayerData: function ( formData, action ) {
+		// 	console.log(formData)
+		// 		$.ajax({
+		// 			data: formData,
+		// 			url: action,
+		// 			type: "post",
+		// 			dataType: "json",
+		// 			success: function ( data ) {
+		// 				console.log(data)
+		// 				this.setState({ available_players: data });
+		// 			}.bind(this)
+		// 		});
+		// },
 
-// 		render: function () {
-// 			console.log(rendering)
-// 			return (
-// 				<div>asdf</div>
-// 			// 	<div>
-// 			// <input type="button" onClick={this.getPlayerData} value="Click me"/>
-// 			// </div>
-// 			);
-// 		}
-//  //  React.render(
-// 	//   <GetData />,
-// 	//   document.getElementById('current-team')
-// 	// );
-// });
+		render: function () {
+			console.log('rendering');
+			// debugger
+			console.log(this.state.available_players);
+			return (
+				    
+
+				for(var i = 0; i < @presenter.available_players.length(); ++i) {
+					<li>available_players[i]</li>
+				}
+				);
+		}
+	});
 
 
 

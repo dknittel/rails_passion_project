@@ -7,8 +7,8 @@ class DraftsController < ApplicationController
     @team = Team.where(draft_id: @draft.id).where(draft_position: 1)
     @draftee = Draftee.first#FIXME
     # @draftee = Draftee.new
-    p '*' * 100
-    p params
+    # p '*' * 100
+    # p params
     @draft = Draft.find(params[:id])
     @team = Team.where(draft_id: @draft.id).where(draft_position: 1)
     # @team.name
@@ -20,26 +20,36 @@ class DraftsController < ApplicationController
       @draft.save
     end
     @team = Team.where(draft_id: @draft.id).find_by(draft_position: @draft.current_team)
-    if request.xhr?
-      render :json => {full_teams: @full_teams, team_name: @team.name}
+    # if request.xhr?
+      # render :json => {full_teams: @full_teams, team_name: @team.name}
       # {full_teams: @full_teams, team_name: @team.name}.to_json
-      render :json => @team
+      # render :json => @team
       # @team.to_json(:only => [:id, :name])
-      current_team = Player.where(team_id: @team.id).map do |player|
-        player
+      @draftees = Draftee.where(team_id: @team.id)
+      current_team = @draftees.all.map do |draftee|
+        Player.find(draftee.player_id)
       end
-      render :json => current_team
+      # render :json => current_team
       # current_team.to_json(:only => [:id, :name])
-      available_players = Player.where(team_id: nil).map do |player|
-        player
+      @draftees = Draftee.where(team_id: nil)
+      available_players = []
+      available_players = @draftees.all.map do |draftee|
+        Player.find(draftee.player_id)
       end
-      # might need to be a hash!!!
-      @presenter = {:available_players => 'asdf'}
+      p '*' * 100
+      p available_players
+      p '*' * 100 
+
+      @presenter = {:available_players => available_players}
+      p @presenter
+      @presenter[:available_players].each do |player|
+        p player.name
+      end
       # render :json => available_players
       # available_players.to_json(:only => [:id, :name])
-    else
+    # else
       # redirect_to draft_path
-    end
+    # end
   end
 
   def update
