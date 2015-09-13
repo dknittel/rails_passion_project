@@ -40,7 +40,7 @@ class DraftsController < ApplicationController
       p available_players
       p '*' * 100 
 
-      @presenter = {:available_players => available_players}
+      @presenter = {:available_players => available_players, :current_team => current_team, :picking_team => @team}
       p @presenter
       @presenter[:available_players].each do |player|
         p player.name

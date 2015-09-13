@@ -1,9 +1,7 @@
-<%= @team.name %> is picking
+<%#= @team.name %> <!-- is picking -->
+<div id="logout"></div>
 
-<div class="current-team"><%= link_to 'Logout', '/logout' %></div>
 <div id="current-team" class="hidden"><%= link_to 'Finish Draft!', draft_draftees_path(@draft) %></div>
-</br>
-</br>
 <div>
 <% Player.order(points: :desc).each do |player| %>
 <div>
@@ -14,12 +12,13 @@
 </div>
 <% end %>
 </div>
-  </br>
 <%# end %>
 
-<%#= javascript_include_tag 'components'%>
+<%= javascript_include_tag 'components'%>
 <% @presenter[:available_players].each do |player| %>
 	<%#= player.name %>
 <% end %>
 
-<%= react_component('GetData', {:presenter => @presenter.to_json}, {:prerender => true}) %>
+<%= react_component("CurrentTeam") %>
+<%= react_component("LogoutButton") %>
+<%= react_component("GetData", {:presenter => @presenter.to_json}, {:prerender => true}) %>

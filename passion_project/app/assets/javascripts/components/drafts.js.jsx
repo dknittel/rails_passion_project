@@ -1,3 +1,31 @@
+var CurrentTeam = React.createClass({
+	getInitialState: function () {
+		console.log(JSON.parse(this.props.teams));
+		return JSON.parse(this.props.presenter);
+	},
+
+	render: function () {
+		return (
+
+				<div>{this.state.picking_team.name} + is picking</div>
+			)
+	}
+});
+
+var LogoutButton = React.createClass({
+	render: function () {
+		return (
+				<button>Logout</button>
+			)
+	}
+});
+
+// React.render(
+//   <LogoutButton />,
+//   document.getElementById('logout')
+// );
+
+
 var GetData = React.createClass({
 	getInitialState: function () {
 		// console.log(JSON.parse(this.props.presenter));
@@ -23,6 +51,8 @@ var GetData = React.createClass({
 				return (
 					<div>
 					{player.name}
+					<button>View Stats</button>
+					<button>Select Player</button>
 					</div>
 					// <Comment author={comment.author}>
 					// {comment.text}
@@ -31,7 +61,6 @@ var GetData = React.createClass({
 			});
 			console.log('rendering');
 			// debugger
-			console.log(this.state.available_players[0].name);
 			return(
 				<div>{playerNodes}</div>
 				// <div> {this.state.available_players.name}	 </div>
