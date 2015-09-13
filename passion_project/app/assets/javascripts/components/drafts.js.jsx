@@ -1,8 +1,8 @@
 var GetData = React.createClass({
 	getInitialState: function () {
 		// console.log(JSON.parse(this.props.presenter));
-			return JSON.parse(this.props.presenter);
-		},
+		return JSON.parse(this.props.presenter);
+	},
 
 		// getPlayerData: function ( formData, action ) {
 		// 	console.log(formData)
@@ -19,15 +19,25 @@ var GetData = React.createClass({
 		// },
 
 		render: function () {
+			var playerNodes = this.state.available_players.map(function (player) {
+				return (
+					<div>
+					{player.name}
+					</div>
+					// <Comment author={comment.author}>
+					// {comment.text}
+					// </Comment>
+					);
+			});
 			console.log('rendering');
 			// debugger
-			console.log(this.state.available_players);
-			return (
-				    
-
-				for(var i = 0; i < @presenter.available_players.length(); ++i) {
-					<li>available_players[i]</li>
-				}
+			console.log(this.state.available_players[0].name);
+			return(
+				<div>{playerNodes}</div>
+				// <div> {this.state.available_players.name}	 </div>
+				// for(var i = 0; i < @presenter.available_players.length(); ++i) {
+				// 	<li>{this.state.available_players[i].name}</li>
+				// }
 				);
 		}
 	});
