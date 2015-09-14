@@ -54,6 +54,18 @@ class DraftsController < ApplicationController
   end
 
   def update
+    p 'X' * 100
+    p params
+    @draft = Draft.find(params[:id])
+    @player = Player.find_by(points_rank: params[:player_id])
+    @draftee = Draftee.where(draft_id: @draft.id).find_by(player_id: @player.id)
+    @team = Team.find_by(draft_position: @draft.current_team, draft_id: @draft.id)
+    @draftee.team_id = @team.id
+    @draftee.save
+    @user = auth_current_user
+    @draft.current_team += 1
+    @draft.save
+    # redirect_to draft_path
   end
 
 def create

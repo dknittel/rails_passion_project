@@ -1,5 +1,5 @@
 <%= javascript_include_tag 'components'%>
-
+<%= react_component("RemovePlayer") %>
 <%= react_component("CurrentTeam", {:presenter => @presenter.to_json}, {:prerender => true}) %>
 <%= react_component("LogoutButton") %>
 </br>

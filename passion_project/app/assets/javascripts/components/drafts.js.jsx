@@ -1,3 +1,5 @@
+
+
 var CurrentTeam = React.createClass({
 	getInitialState: function () {
 		console.log('yo')
@@ -54,7 +56,8 @@ var GetData = React.createClass({
 					<div>
 					{player.name}
 					<button>View Stats</button>
-					<button id="select-player">Select Player</button>
+					console.log(this.props)
+					// <button id="select-player" onClick={this.props.clickHandler}>Select Player</button>
 					</div>
 					// <Comment author={comment.author}>
 					// {comment.text}
@@ -70,8 +73,38 @@ var GetData = React.createClass({
 				// 	<li>{this.state.available_players[i].name}</li>
 				// }
 				);
-		}
+		},
+		// render: function() {
+		// 	return (
+	 //    <div>{img}<GetData clickHandler={this.removeImage} /></div>
+	 //    );
+		// }
 	});
+
+
+var RemovePlayer = React.createClass({
+  render: function() {
+    var player = this.state.showImage ? <GetData /> : '';
+    return (
+    <div>{player}<GetData clickHandler={this.removeImage} /></div>
+    );
+  },
+
+  getInitialState: function() {
+      return {
+          showImage: true
+      };
+  },
+
+  removeImage: function() {
+      this.setState({ showImage: false });
+  }
+});
+
+// var selectPlayer = React.createClass({
+
+
+// })
 
 
 

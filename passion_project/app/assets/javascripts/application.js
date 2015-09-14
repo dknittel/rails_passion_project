@@ -25,6 +25,7 @@ $(document).ready(function() {
 
 function ajaxCall(method, url, data, dataType, callback) {
   console.log(data)
+  console.log('ay')
   $.ajax({
     method: method,
     url: url,
@@ -55,19 +56,20 @@ function selectPlayer() {
     console.log('yooooooo')
     e.preventDefault();
     function callback(response) {
+      console.log('sup')
       counter += 1;
-      $(button).parent().parent().hide();
-      if(response.full_teams){
-        $('.finish-draft').removeClass('hidden');
-        $('.current-team').html('The draft is complete');
-        $('#select-player').addClass('hidden');
-      }
-      else {
-        $('.current-team').html(response.team_name + " is picking");
-      }
+      // $(button).parent().parent().hide();
+      // if(response.full_teams){
+      //   $('.finish-draft').removeClass('hidden');
+      //   $('.current-team').html('The draft is complete');
+      //   $('#select-player').addClass('hidden');
+      // }
+      // else {
+      //   $('.current-team').html(response.team_name + " is picking");
+      // }
     }
     var data = set(button)
-    ajaxCall('post', $(button).attr("href"), {player_id: data}, 'json', callback);
+    ajaxCall('post', $(button).attr("href"), ({player_id: data}), 'json', callback);
   });
 }
 
