@@ -1,6 +1,9 @@
 <%= javascript_include_tag 'components'%>
-<%= react_component("RemovePlayer") %>
-<%= react_component("CurrentTeam", {:presenter => @presenter.to_json}, {:prerender => true}) %>
-<%= react_component("LogoutButton") %>
+<%#= react_component("AvailablePlayerList", playerList: @presenter[:available_players] ) %>
+<%#= react_component("AvailablePlayer", playerName: @presenter[:available_players] ) %>
+
+<%#= react_component("RemovePlayer") %>
+<%= react_component("GetData", presenter: @presenter) %> <!-- }, {:prerender => true}) %> -->
+<%#= react_component("LogoutButton") %>
 </br>
-<%= react_component("GetData", {:presenter => @presenter.to_json}, {:prerender => true}) %>
+<%#= react_component("GetData", {:presenter => @presenter.to_json}, {:prerender => true}) %>

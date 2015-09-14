@@ -2,20 +2,26 @@ Sun:
 (done) Sort players by points in drafts#show controller
 (done)Display logout and 'is picking' with react
 (done) Display view_stats and select player buttons on page with react
-Post to database with ajax
+
+Morning:
+Post to database with ajax 
+
+Afternoon: (teacher help)
 Remove selected players with react
 
-Mon:
-Update 'is picking' with react
-Display finish draft button with react
-Get view_stats button working with react(?)
-Logout link button
-Display complete page with react or just normal button link
+Afternoon/night:
+Get view_stats button working (with react?) (afternoon/night)
 
-After 6:
-Prep what to say
-Clean up code
-Create video
+If time:
+(just remove is picking and logout button for now) Update 'is picking' with react
+(skip?) Logout link button
+(skip) Display finish draft button with react
+(skip?)Display complete page with react or just normal button link
+
+When home (stay up as late as you need):
+Prep what to say (30 min)
+Clean up code (10 min)
+Create video (40 min)
 
 api/v1/drafts/:id
 @draft.to_json with options to send everything from rails to js

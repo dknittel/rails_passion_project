@@ -37,15 +37,15 @@ class DraftsController < ApplicationController
       #   Player.find(draftee.player_id)
       # end
       available_players = Player.order(points: :desc)
-      p '*' * 100
-      p available_players
-      p '*' * 100 
-      p @team.name
+      # p '*' * 100
+      # p available_players
+      # p '*' * 100 
+      # p @team.name
       @presenter = {:available_players => available_players, :current_team => current_team, :picking_team => @team, full_teams: @full_teams}
-      p @presenter
-      @presenter[:available_players].each do |player|
-        p player.name
-      end
+      # p @presenter
+      # @presenter[:available_players].each do |player|
+      #   p player.name
+      # end
       # render :json => available_players
       # available_players.to_json(:only => [:id, :name])
     # else
