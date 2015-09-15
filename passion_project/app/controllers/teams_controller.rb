@@ -7,8 +7,6 @@ class TeamsController < ApplicationController
     @draft = Draft.find(params[:draft_id])
     counter = 0
     @draft.num_teams.times do |draft_position|
-      p 'G' * 100
-      p params[:team][counter]
       @draft.teams.create(name: params[:team][counter],
                           draft_position: draft_position + 1)
       counter += 1

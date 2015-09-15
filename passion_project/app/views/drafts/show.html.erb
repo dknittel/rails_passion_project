@@ -1,9 +1,9 @@
 <%= javascript_include_tag 'components'%>
-<%#= react_component("AvailablePlayerList", playerList: @presenter[:available_players] ) %>
-<%#= react_component("AvailablePlayer", playerName: @presenter[:available_players] ) %>
 
-<%#= react_component("RemovePlayer") %>
-<%= react_component("Drafts", @props) %> <!-- }, {:prerender => true}) %> -->
-<%#= react_component("LogoutButton") %>
+<% if @props[:full_teams] %>
+	<%= react_component("EndDraft", @props) %>
+<% end %>
+
+<%= react_component("Drafts", @props) %>
 </br>
-<%#= react_component("GetData", {:presenter => @presenter.to_json}, {:prerender => true}) %>
+

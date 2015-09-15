@@ -1,3 +1,64 @@
+var Drafts = React.createClass({
+	propTypes:{
+		available_players: React.PropTypes.array.isRequired,
+		current_team:      React.PropTypes.any,
+		picking_team:      React.PropTypes.any,
+		full_teams:        React.PropTypes.any,
+		draft:             React.PropTypes.any,
+	},
+
+	removePlayer: function(player) {
+		var available_players = this.props.available_players
+		var index = available_players.indexOf(player);
+		available_players = available_players.splice(index, 1);
+		this.forceUpdate();
+	},
+
+	selectPlayer: function(player) {
+		this.removePlayer(player);
+		console.log('selected player',player)
+		$.ajax({
+			method: 'put',
+			url: '/drafts/'+this.props.draft.id, 	
+			data: {player_id: player.id},
+		})
+		// if (this.props.full_teams) {
+		// 	return <EndDraft />;
+		// }
+    },
+
+	render: function () {
+		return <AvailablePlayerList players={this.props.available_players} onSelect={this.selectPlayer} draft={this.props.draft}/>;
+	},
+});
+
+
+
+
+
+
+
+
+
+
+
+
+var EndDraft = React.createClass({
+	render: function () {
+		return (
+			<a href={"/drafts/" + this.props.draft.id + "/draftees"}>Draft Complete</a>
+			);
+	}
+})
+
+
+
+
+
+
+
+
+
 // var CurrentTeam = React.createClass({
 // 	getInitialState: function () {
 // 		console.log('yo')
@@ -51,51 +112,6 @@
 
 
 
-var Drafts = React.createClass({
-	propTypes:{
-		available_players: React.PropTypes.array.isRequired,
-		current_team:      React.PropTypes.any,
-		picking_team:      React.PropTypes.any,
-		full_teams:        React.PropTypes.any,
-		draft:             React.PropTypes.any,
-	},
-
-	removePlayer: function(player) {
-		var available_players = this.props.available_players
-		var index = available_players.indexOf(player);
-		available_players = available_players.splice(index, 1);
-		this.forceUpdate();
-	},
-
-	selectPlayer: function(player) {
-		this.removePlayer(player);
-		console.log('selected player',player)
-		//AJAX POST
-		$.ajax({
-			method: 'put',
-			url: '/drafts/'+this.props.draft.id, 	
-			data: {player_id: player.id},
-		})
-		debugger
-		if (this.props.full_teams) {
-			console.log('yooooooo')
-			return <EndDraft />;
-		}
-    },
-
-	render: function () {
-		return <AvailablePlayerList players={this.props.available_players} onSelect={this.selectPlayer} draft={this.props.draft}/>;
-	},
-});
-
-var EndDraft = React.createClass({
-	render: function () {
-	console.log('yoooo');
-		return (
-			<button>Draft Complete</button>
-			);
-	}
-})
 
 
 

@@ -7,9 +7,8 @@ var AvailablePlayerList = React.createClass({
 
 	},
 	render: function () {
-		var onSelect = this.props.onSelect
-		var that = this
-		// debugger
+		var onSelect = this.props.onSelect;
+		var that = this;
 		var players = this.props.players.map(function(player, index){
     		return <AvailablePlayer key={index} player={player} onSelect={onSelect} draft={that.props.draft}/>
     	});
