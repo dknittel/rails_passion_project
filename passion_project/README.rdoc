@@ -4,6 +4,8 @@ Fantasy Sports Draft
 
 Daniel Knittel
 
+Tutorial: https://youtu.be/lzyNRvfwP4Q
+
 Purpose:
 The purpose of this website is to allow users to create drafts and select players to their teams with their friends.
 
@@ -11,8 +13,8 @@ Target Users:
 The target users are people who are sports fans and who enjoy playing fantasy sports and drafting players.
 
 Use cases:
-User can signup or login
-User can CRUD drafts
+User can signup or User
+login can CRUD drafts
 User can set the "number of teams" and "pool of players" they want to draft from when creating a new draft
 User can CRUD a team per draft
 User can add players to a team
