@@ -1,19 +1,9 @@
-<%= @team.name %> is picking
+<%= javascript_include_tag 'components'%>
 
-<div class="current-team"><%= link_to 'Logout', '/logout' %></div>
-<div class="hidden"><%= link_to 'Finish Draft!', draft_draftees_path(@draft) %></div>
-</br>
-</br>
-<div>
-<% Player.order(points: :desc).each do |player| %>
-<div>
-  <%= player.name %>
-  <%= link_to 'View Stats', draft_player_path(@draft, player) %>
-  <%= form_for :draft, url: drafts_path do |f| %>
-  <%= submit_tag "Select Player", :class => 'select-player' %>
-</div>
+<% if @props[:full_teams] %>
+	<%= react_component("EndDraft", @props) %>
 <% end %>
-</div>
-  </br>
-<% end %>
+
+<%= react_component("Drafts", @props) %>
+</br>
 

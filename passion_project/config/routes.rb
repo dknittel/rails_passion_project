@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   resources :users
   resources :drafts do
     resources :teams
-    resources :players
     resources :draftees
+    resources :players
   end
-
-
 end
