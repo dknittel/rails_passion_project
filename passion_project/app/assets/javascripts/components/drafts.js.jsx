@@ -26,45 +26,81 @@
 // //   document.getElementById('logout')
 // // );
 
-var PlayerList = React.createClass({
-    render: function(){
-        var that = this;
-        var displayTask  = function(task, taskIndex){     
-          console.log(that,"NEW ADDED TASK",task);
-          return (
-            <li key={taskIndex}>
-              {task} <button onClick={that.props.selectPlayer} value={taskIndex}>Delete</button>
-            </li>);
-          };
-    
-        return (<ul>
-            <AvailablePlayerList />
-          </ul>);
-   }
- });
+// var PlayerList = React.createClass({
+
+// 	propTypes:{
+// 		playerList: React.PropTypes.array.isRequired,
+// 		selectCallback: React.PropTypes.func.isRequired
+// 	}
+
+//     render: function(){
+//     	var players = this.props.playerList.map(function(player, index){
+//     		return <PlayerListMember key={index} player={player} />
+//     	});
+
+//         var that = this;
+//         var displayTask  = function(player, playerIndex){     
+//           console.log(that,"NEW ADDED TASK",player);
+//           return (
+//             <div key={playerIndex}>
+//               <AvailablePlayerList onClick={that.props.selectPlayer} value={playerIndex} />
+//             </div>);
+//           };
+//    }
+//  });
 
 
 
+var Drafts = React.createClass({
+	propTypes:{
+		available_players: React.PropTypes.array.isRequired,
+		current_team:      React.PropTypes.any,
+		picking_team:      React.PropTypes.any,
+		full_teams:        React.PropTypes.any,
+		draft:             React.PropTypes.any,
+	},
 
+	removePlayer: function(player) {
+		var available_players = this.props.available_players
+		var index = available_players.indexOf(player);
+		available_players = available_players.splice(index, 1);
+		this.forceUpdate();
+	},
 
-var GetData = React.createClass({
-	// getInitialState: function () {
-	// 	return JSON.parse(this.props.presenter);
-	// },
-
-	selectPlayer: function(e) {
-        var taskIndex = parseInt(e.target.value, 10);
-        console.log('remove task: %d', taskIndex, this.state.items[taskIndex]);
-        this.setState(state => {
-            state.items.splice(taskIndex, 1);
-            return {items: state.items};
-        });
+	selectPlayer: function(player) {
+		this.removePlayer(player);
+		console.log('selected player',player)
+		//AJAX POST
+		$.ajax({
+			method: 'put',
+			url: '/drafts/'+this.props.draft.id, 	
+			data: {player_id: player.id},
+		})
+		debugger
+		if (this.props.full_teams) {
+			console.log('yooooooo')
+			return <EndDraft />;
+		}
     },
 
-		render: function () {
-			return (<AvailablePlayerList playerList={this.props.presenter.available_players} selectCallback={this.selectPlayer.bind(this)} />);
-		},
+	render: function () {
+		return <AvailablePlayerList players={this.props.available_players} onSelect={this.selectPlayer} draft={this.props.draft}/>;
+	},
 });
+
+var EndDraft = React.createClass({
+	render: function () {
+	console.log('yoooo');
+		return (
+			<button>Draft Complete</button>
+			);
+	}
+})
+
+
+
+
+
 
 // // var TaskApp = React.createClass({
 // //     getInitialState: function(){

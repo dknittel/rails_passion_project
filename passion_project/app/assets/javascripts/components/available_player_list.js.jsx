@@ -1,20 +1,20 @@
 var AvailablePlayerList = React.createClass({
 
 	propTypes: {
-		playerList: React.PropTypes.array.isRequired,
-	    selectCallback: React.PropTypes.func
+		players: React.PropTypes.array.isRequired,
+	    onSelect:   React.PropTypes.func,
+	    draft: React.PropTypes.any
 
 	},
 	render: function () {
-			debugger;
-			var callback = this.props.selectCallback
-		return (
-			<div key={1}>
-			{this.props.playerList.map(function(player){
-				return(<AvailablePlayer selectCallback={callback} player={player}/>);
-			})}
-			</div>
-		);
+		var onSelect = this.props.onSelect
+		var that = this
+		// debugger
+		var players = this.props.players.map(function(player, index){
+    		return <AvailablePlayer key={index} player={player} onSelect={onSelect} draft={that.props.draft}/>
+    	});
+
+		return <div>{players}</div>;
 	}
 });
 

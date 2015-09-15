@@ -2,17 +2,21 @@ var AvailablePlayer = React.createClass({
 
 	propTypes: {
 	    player: React.PropTypes.object.isRequired,
-	    viewCallback: React.PropTypes.func,
-	    selectCallback: React.PropTypes.func
+	    // viewCallback: React.PropTypes.func,
+	    onSelect: React.PropTypes.func,
+	    draft: React.PropTypes.any
+	},
+	onSelect: function(event){
+		event.preventDefault();
+		this.props.onSelect(this.props.player);
 	},
 	render: function () {
-		return (
-			<div key={this.props.player.id}>
-				{this.props.player.name}
-				<button>View Stats</button>
-				<button onClick={this.props.selectCallback}>Select Player</button>
-			</div>
-			);
+		// debugger;
+		return <div>
+			{this.props.player.name}
+			<button><a href='/drafts/'+this.props.draft.id+'/draftees'>View Stats</a></button>
+			<button onClick={this.onSelect}>Select Player</button>
+		</div>
 	}
 
 

@@ -4,19 +4,22 @@ Sun:
 (done) Display view_stats and select player buttons on page with react
 
 Morning:
-Post to database with ajax 
+(done)Post to database with ajax 
 
 Afternoon: (teacher help)
-Remove selected players with react
+(done)Remove selected players with react
 
 Afternoon/night:
+Get full teams working
+Display teams?
 Get view_stats button working (with react?) (afternoon/night)
 
 If time:
+(skip?)Display complete page with react or just normal button link
 (just remove is picking and logout button for now) Update 'is picking' with react
 (skip?) Logout link button
 (skip) Display finish draft button with react
-(skip?)Display complete page with react or just normal button link
+fix register and login
 
 When home (stay up as late as you need):
 Prep what to say (30 min)
@@ -33,5 +36,6 @@ once you have all that, create the user interface with react using that data
 then use react to select players
 Use unmount to remove players from the page
 
+Put 'loading' on create teams page while drafts page loads
 Fix login and register authentication and errors
 See notes from sinatra version
