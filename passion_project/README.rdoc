@@ -10,14 +10,7 @@ The purpose of this website is to allow users to create drafts and select player
 Target Users:
 The target users are people who are sports fans and who enjoy playing fantasy sports and drafting players.
 
-Use cases:
-User can signup or User
-login can CRUD drafts
-User can set the "number of teams" and "pool of players" they want to draft from when creating a new draft
-User can CRUD a team per draft
-User can add players to a team
-User can view player stats
-User can name their teams
+Use cases: A user can signup or login and can create a draft. A user can also set the number of teams and pool of players they want to draft from when creating a new draft. Users can create a team, name their team, add players to a team, and view player stats.
 
 How it works:
 	Why React:
