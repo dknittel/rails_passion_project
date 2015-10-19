@@ -1,30 +1,16 @@
-Sun:
-(done) Sort players by points in drafts#show controller
-(done)Display logout and 'is picking' with react
-(done) Display view_stats and select player buttons on page with react
+First of all, I would like to fix the error with ending the draft and sending it to the complete page. Also, it would be nice if the drafts page outputted which team is currently picking a player. Additionally, I would like to have the drafts page display the current team's players so far. Finally, I want to use react to create 'loading' text on the create teams page while the drafts page is loading
+Display complete page with react or just normal button link
+Update 'is picking' with react
+Logout link button
+Use react to do the view stats
+Display finish draft button with react
+Put 'loading' on create teams page while drafts page loads
+Fix login and register authentication and errors
+See notes from sinatra version
 
-Morning:
-(done)Post to database with ajax 
 
-Afternoon: (teacher help)
-(done)Remove selected players with react
 
-Afternoon/night:
-Get full teams working
-Display teams?
-Get view_stats button working (with react?) (afternoon/night)
 
-If time:
-(skip?)Display complete page with react or just normal button link
-(just remove is picking and logout button for now) Update 'is picking' with react
-(skip?) Logout link button
-(skip) Display finish draft button with react
-fix register and login
-
-When home (stay up as late as you need):
-Prep what to say (30 min)
-Clean up code (10 min)
-Create video (40 min)
 
 api/v1/drafts/:id
 @draft.to_json with options to send everything from rails to js
@@ -35,7 +21,3 @@ api/v1/drafts/:id
 once you have all that, create the user interface with react using that data
 then use react to select players
 Use unmount to remove players from the page
-
-Put 'loading' on create teams page while drafts page loads
-Fix login and register authentication and errors
-See notes from sinatra version
