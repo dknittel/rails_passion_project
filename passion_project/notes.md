@@ -1,11 +1,19 @@
 Display complete page with react or just normal button link
+
 Update 'is picking' with react
+
 Logout link button
+
 Use react to do the view stats
+
 Display finish draft button with react
+
 Put 'loading' on create teams page while drafts page loads
+
 Fix login and register authentication and errors
+
 Current team so far
+
 See notes from sinatra version
 
 
